@@ -1,0 +1,413 @@
+html{
+    scroll-behavior: smooth;
+}
+/*navigation*/
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(250, 247, 228);
+    list-style-type: none;
+    gap:20px;
+    border: solid 1px #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li {
+    padding: 10px 10px;
+    
+} 
+
+nav ul li a {
+    text-decoration: none;
+    color: purple;
+    transition: color 0.3s;
+    font-size: large;
+    letter-spacing: 2px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px 10px;
+    border: purple solid 1px;
+    border-radius: 4px;
+    
+}
+
+nav ul li a.active{
+    color:purple;
+    text-decoration: underline;
+    font-weight: bold;
+    border: purple solid 2px;
+}
+nav ul li a:hover {
+    border:purple solid 2px;
+}
+
+/* title */
+h1 {
+    font-family: cursive, sans-serif, serif;
+    text-align: center;
+    font-size: 40px;
+    
+}
+
+/* make h1 and nav not move when scrolling */
+/* .header {
+    position: fixed;  
+    top: 0; 
+    right: 0;         
+    width: 100%;      
+    background-color: rgb(249, 247, 234); 
+    z-index: 1000;    
+} */
+
+
+
+
+/*skip to main content*/
+/* Hidden by default */
+.skip-link {
+    position: absolute;
+    top: -50px; /* move it out of the viewport */
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    z-index: 1000; /* ensure it's on top of other content if it becomes visible */
+    transition: top 0.2s;
+}
+
+/* Visible when focused */
+.skip-link:focus {
+    top: 0;
+}
+
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Main Content */
+/* Pet */
+.pet-box {
+    
+    padding-top: 160px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+    /* align-items: start; */
+}
+
+/* surrounding box */
+.pet-box{
+    border: 1px solid #ccc;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(249, 247, 234);
+    border-radius: 4px;
+    margin: 30px 20px;
+}
+
+h2 {
+    grid-row: 1;
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+.main-image{
+    grid-row: 2;
+    grid-column: 1;
+    /* width: 100%;
+    height: 100%;
+    object-fit: cover; */
+    place-self: center;
+    box-shadow: 5px 5px 3px gray;
+}
+p{
+    grid-row: 2;
+    grid-column: 2;
+    text-indent: 25px;
+}
+
+.photoGallery{
+    grid-column: 1;
+    grid-row:3;
+    
+}
+
+.likes{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+
+/* pet mobile view */
+@media (max-width: 800px) {
+    nav ul {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .pet-box {
+        grid-template-columns: 1fr;  /* Stack elements vertically */
+        grid-template-rows: auto auto auto 1fr auto;
+
+        margin: 20px 10px; /* Adjust margin for mobile */
+
+      }
+      .pet-box h2 {
+        text-align: center;
+        grid-row: 1;
+        grid-column: 1;
+        
+      }
+      .main-image, p, .photoGallery, .likes{
+        grid-column: 1;  /* All elements will now span the full width */
+        margin-bottom: 20px; /* Add spacing between stacked elements */
+        text-align: center;
+      }
+
+     .likes ul{
+        text-align: start;
+     } 
+
+      .main-image {
+        max-width: 100%; /* Ensure images don't exceed screen width */
+        height: auto; /* Let the image height be natural */
+        grid-row: 2;
+      }
+      p {
+        padding: 0 10px; /* Add a little horizontal padding for text content */
+        grid-row: 3;
+        overflow: visible;
+      }
+        .photoGallery {
+            grid-row: 4;
+        }
+        .likes {
+            grid-row: 5;
+        }
+    
+    }
+
+    /* Recipes */
+    .recipe-box {
+        padding-top: 160px;
+        display: grid;
+        grid-template-rows: repeat(auto,4);
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        /* align-items: start; */
+    }
+    .recipe-box{
+        border: 1px solid #ccc;
+        padding: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: rgb(249, 247, 234);
+        border-radius: 4px;
+        margin: 30px 20px;
+    }
+    .recipe-info span{
+        grid-row: 2;
+        grid-column: 1;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .recipe-info p{
+        grid-row: 2;
+        grid-column: 1;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .recipe-main-pic{
+        grid-row: 2;
+        grid-column: 2/span 2;
+        place-self: center;
+        box-shadow: 5px 5px 3px gray;
+    }
+
+   .recipe-ing{
+    grid-row: 3;
+    grid-column: 1;
+   }
+   .recipe-steps{
+    grid-row: 3;
+    grid-column: 2/-1;
+   }
+   .additional-food-img{
+    grid-row: 4;
+    grid-column: 1/-1;
+   }
+
+   /* Recipes mobile view */
+   @media (max-width: 800px) {
+    nav ul {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .recipe-box {
+        grid-template-columns: 1fr;  /* Stack elements vertically */
+        grid-template-rows: repeat(auto, 6);
+        margin: 20px 10px; /* Adjust margin for mobile */
+    }
+
+        .recipe-box h2, .recipe-info, .recipe-main-pic, .recipe-ing, .recipe-steps, .additional-food-img{
+            grid-column: 1;  /* All elements will now span the full width */
+            margin-bottom: 20px; /* Add spacing between stacked elements */
+            text-align: center;
+        }
+      
+      .recipe-box h2 {
+        text-align: center;
+        grid-row: 1;
+        
+      }
+    
+      .recipe-main-pic {
+        max-width: 100%; /* Ensure images don't exceed screen width */
+        height: auto; /* Let the image height be natural */
+        grid-row: 2;
+    }
+    .recipe-info{
+        grid-row: 3;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+
+   .recipe-ing{
+    grid-row: 4;
+    text-align: center;
+   }
+   .recipe-ing ul{
+         text-align: start;
+    
+   }
+   .recipe-steps{
+    grid-row: 5;
+   }
+
+   .recipe-steps ol{
+    text-align: start;
+   }
+   .additional-food-img{
+    grid-row: 6;
+   }
+}
+
+/* Travel */
+.travel-box {
+    padding-top: 160px;
+    display: grid;
+    grid-template-rows: auto 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: start
+}
+
+/* surrounding box */
+.travel-box{
+    border: 1px solid #ccc;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(249, 247, 234);
+    border-radius: 4px;
+    margin: 30px 20px;
+} 
+.travel-box h2{
+    grid-row: 1;
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+.travel-main-pic-1{
+    grid-row: 2;
+    grid-column: 1;
+    box-shadow: 5px 5px 3px gray;
+}
+.travel-main-pic-2{
+    grid-row: 2;
+    grid-column: 2;
+    box-shadow: 5px 5px 3px gray;
+}
+.travel-info{
+    grid-row:2;
+    grid-column: 3/5;
+    text-indent: 25px;
+}
+
+
+#travel-gallery-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    grid-row: 3;
+}
+
+.travel-box figcaption{
+    text-indent: 25px;
+}
+
+.travel-box img{
+    align-items: center;
+    
+}
+
+
+/* Travel mobile view */
+@media (max-width: 800px) {
+    nav ul {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .travel-box {
+        grid-template-columns: 1fr;  /* Stack elements vertically */
+        grid-template-rows: repeat(auto, 9);
+        margin: 20px 10px; /* Adjust margin for mobile */
+    }
+
+    .travel-box h2, .travel-info, .travel-main-pic-1, .travel-main-pic-2, #travel-gallery-title{
+            grid-column: 1;  /* All elements will now span the full width */
+            margin-bottom: 20px; /* Add spacing between stacked elements */
+            text-align: center;
+    }
+    
+    .travel-box h2 {
+        text-align: center;
+        grid-row: 1;
+        
+      }
+
+        
+    .travel-info{
+        grid-row: 2;
+        text-align: center;
+    }
+    
+      .travel-main-pic-1 {
+        max-width: 100%; /* Ensure images don't exceed screen width */
+        height: auto; /* Let the image height be natural */
+        grid-row: 3;
+    }
+
+    .travel-main-pic-2 {
+        max-width: 100%; /* Ensure images don't exceed screen width */
+        height: auto; /* Let the image height be natural */
+        grid-row: 4;
+    }
+
+   #travel-gallery-title{
+        grid-row: 5;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
