@@ -405,3 +405,10 @@ p{
     }
 }
 
+/* turn off gif */
+@media (prefers-reduced-motion: reduce) {
+    .motion-gif {
+        display: none;
+    }
+}
+
