@@ -199,7 +199,7 @@ p{
     .recipe-box {
         padding-top: 160px;
         display: grid;
-        grid-template-rows: repeat(auto,4);
+        grid-template-rows: auto auto auto auto;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
         /* align-items: start; */
@@ -255,7 +255,7 @@ p{
 
     .recipe-box {
         grid-template-columns: 1fr;  /* Stack elements vertically */
-        grid-template-rows: repeat(auto, 6);
+        grid-template-rows: auto auto auto auto auto auto;
         margin: 20px 10px; /* Adjust margin for mobile */
     }
 
@@ -345,7 +345,7 @@ p{
 }
 
 
-#travel-gallery-title {
+#taiwan-gallery-title, #mexico-gallery-title, #italy-gallery-title, #hawaii-gallery-title {
     grid-column: 1 / -1;
     text-align: center;
     grid-row: 3;
@@ -370,7 +370,7 @@ p{
 
     .travel-box {
         grid-template-columns: 1fr;  /* Stack elements vertically */
-        grid-template-rows: repeat(auto, 9);
+        grid-template-rows: auto auto auto auto auto;
         margin: 20px 10px; /* Adjust margin for mobile */
     }
 
@@ -404,7 +404,7 @@ p{
         grid-row: 4;
     }
 
-   #travel-gallery-title{
+    #taiwan-gallery-title, #mexico-gallery-title, #italy-gallery-title, #hawaii-gallery-title{
         grid-row: 5;
         margin-bottom: 10px;
         text-align: center;
